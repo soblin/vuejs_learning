@@ -1,8 +1,16 @@
-const app = new Vue({
+new Vue({
     el: '#app',
     data() {
         return {
-            text: 'hello, Vue.js'
+            count: 0
         };
+    },
+    methods: {
+        increment() {
+            this.count++;
+        },
+        decrement(){
+            this.count--;
+        }
     }
 });
