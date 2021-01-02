@@ -1,26 +1,32 @@
-a {
-    text-decoration: none;
+.btn-humburger {
+    width: 56px;
+    height: 56px;
+    background: transparent;
+    position: relative;
 }
 
-.header-menu {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 12px;
-    margin: 0;
-    background: #eee;
+.btn-humburger > div {
+    position: absolute;
+    width: 56px;
+    height: 3px;
+    transition: all 0.2s;
+    background-color: #000
 }
 
-.menu-item {
-    padding: 8px;
-    font-size: 18px;
-    list-style: none;
+.btn-humburger > div:first-child {
+    top: 15px;
+    left: 0;
 }
 
-.menu-item a {
-    color: #111;
+.btn-humburger > div:last-child {
+    bottom: 15px;
+    left: 0;
 }
 
-.menu-item a:hover {
-    border-bottom: solid 1px #111;
+.btn-humburger.is-active > div:first-child {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.btn-humburger.is-active > div:last-child {
+    transform: translateY(-10px) rotate(-45deg);    
 }
