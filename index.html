@@ -9,12 +9,7 @@
     </head>
     <body>
         <div id="app">
-            <button class="button" @click="increment">+1</button>
-            <button class="button" @click="decrement">-1</button>
-            <p>{{ count }}</p>
-            <p v-if="count>=80" class="passed">ランクA</p>
-            <p v-else-if="count>=60">ランクB</p>
-            <p v-else>ランクC</p>
+            <input v-model="name" type="text" name="name"/>
         </div>
         <script src="./script/script.js"></script>
     </body>
