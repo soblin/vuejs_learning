@@ -12,10 +12,5 @@ new Vue({
         decrement(){
             this.count--;
         }
-    },
-    computed: {
-        isPass() {
-            return this.count >= 60;
-        }
     }
 });
