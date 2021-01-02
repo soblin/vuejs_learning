@@ -4,14 +4,21 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>sample</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body>
         <div id="app">
             <button @click="increment">+1</button>
             <button @click="decrement">-1</button>
             <p>{{ count }}</p>
+            <div v-if="count >= 60">
+                <p>合格です！</p>
+                <section>
+                    <h2>おめでとうございます</h2>
+                    <p>これからもがんばりましょう</p>
+                </section>
+            </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="./script/script.js"></script>
     </body>
 </html>
