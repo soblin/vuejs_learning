@@ -1,25 +1,16 @@
-const app = new Vue({
+new Vue({
     el: '#app',
     data() {
         return {
-            menus: [
-                {
-                    label: 'TOP',
-                    path: './index.html'
-                },
-                {
-                    label: 'ABOUT',
-                    path: './about.html'
-                },
-                {
-                    label: 'SCHEDULE',
-                    path: './schedule.html'
-                },
-                {
-                    label: 'CONTACT',
-                    path: './contact.html'
-                }
-            ]
+            range: 10,
+            red: 0,
+            blue: 0,
+            green: 0
         };
+    },
+    computed: {
+        bindStyle() {
+            return `width: ${this.range}px; height: ${this.range}px; background: rgb(${this.red}, ${this.green}, ${this.blue})`;
+        }
     }
 });

@@ -9,13 +9,43 @@
     </head>
     <body>
         <div id="app">
-            <ul class="header-menu">
-                <li
-                    v-for="(item, i) in menus"
-                    :key="i"
-                    class="menu-item"
-                ><a :href="item.path">{{ item.label }}</a></li>
-            </ul>
+            <p>
+                <span>大きさ:</span>
+                <input
+                    v-model="range"
+                    type="range"
+                    max="500"
+                    min="10"
+                />
+            </p>
+            <p>
+                <span>赤:</span>
+                <input
+                    v-model="red"
+                    type="range"
+                    max="255"
+                    min="0"
+                />
+            </p>
+            <p>
+                <span>緑:</span>
+                <input
+                    v-model="green"
+                    type="range"
+                    max="255"
+                    min="0"
+                />
+            </p>
+            <p>
+                <span>青:</span>
+                <input
+                    v-model="blue"
+                    type="range"
+                    max="255"
+                    min="0"
+                />
+            </p>
+            <div :style="bindStyle"></div>
         </div>
         <script src="./script/script.js"></script>
     </body>
