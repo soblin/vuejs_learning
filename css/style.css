@@ -1,18 +1,26 @@
-.passed {
-    font-size: 24px;
-    color: #e74c3c;
+a {
+    text-decoration: none;
 }
 
-.button {
-    background: #fcfcfa;
-    border-radius: 4px;
-    border: none;
-    box-shadow: 0px 2px 7px #3338;
+.header-menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 12px;
+    margin: 0;
+    background: #eee;
+}
+
+.menu-item {
+    padding: 8px;
     font-size: 18px;
-    padding: 16px;
-    padding: 8px 16px;
+    list-style: none;
 }
 
-.error {
-    color: #e74c3c;
+.menu-item a {
+    color: #111;
+}
+
+.menu-item a:hover {
+    border-bottom: solid 1px #111;
 }

@@ -3,20 +3,13 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>index</title>
+        <title>about</title>
         <link rel="stylesheet" href="./css/style.css"/>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body>
         <div id="app">
-            <ul class="header-menu">
-                <li
-                    v-for="(item, i) in menus"
-                    :key="i"
-                    class="menu-item"
-                ><a :href="item.path">{{ item.label }}</a></li>
-            </ul>
+            <h1>about page</h1>
         </div>
-        <script src="./script/script.js"></script>
     </body>
 </html>

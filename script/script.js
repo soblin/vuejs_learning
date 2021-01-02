@@ -2,10 +2,23 @@ const app = new Vue({
     el: '#app',
     data() {
         return {
-            items: [
-                { id: 1, label: "子"},
-                { id: 2, label: "丑"},
-                { id: 3, label: "寅"}
+            menus: [
+                {
+                    label: 'TOP',
+                    path: './index.html'
+                },
+                {
+                    label: 'ABOUT',
+                    path: './about.html'
+                },
+                {
+                    label: 'SCHEDULE',
+                    path: './schedule.html'
+                },
+                {
+                    label: 'CONTACT',
+                    path: './contact.html'
+                }
             ]
         };
     }
