@@ -2,12 +2,29 @@ new Vue({
     el: '#app',
     data() {
         return {
-            isActive: false
+            todos: [],
+            text: ''
         };
     },
     methods: {
-        toggleButton() {
-            this.isActive = !this.isActive;
+        inputText(e) {
+            this.text = e.target.value;
+        },
+        addTodo() {
+            // if text was empty, do nothing
+            if (!this.text) return;
+            const text = this.text;
+            const id = Math.ceil(Math.random() * 1000);
+            const todo = {
+                id,
+                text,
+                isDone: false
+            };
+            this.todos.push(todo);
+            this.resetText();
+        },
+        resetText() {
+            this.text = '';
         }
     }
 });
