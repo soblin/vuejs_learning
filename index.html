@@ -9,7 +9,42 @@
     </head>
     <body>
         <div id="app">
-            <input v-model="name" type="text" name="name"/>
+            <div class="form-area__name">
+                <p>名前</p>
+                <input
+                    type="text"
+                    name="name"
+                    v-model="name"
+                />
+                <p
+                    v-if="isInvalidName"
+                    class="error"
+                >名前は4文字以上で入力して下さい</p>
+            </div>
+            <div class="form-area__tel">
+                <p>電話番号</p>
+                <input
+                    type="tel"
+                    name="tel"
+                    v-model="tel"
+                />
+                <p
+                    v-if="isInvalidTel"
+                    class="error"
+                >電話番号は8文字以上で入力してください</p>
+            </div>
+            <div class="form-area__email">
+                <p>Eメールアドレス</p>
+                <input
+                    type="text"
+                    name="email"
+                    v-model="email"
+                />
+                <p
+                    v-if="isInvalidEmail"
+                    class="error"
+                >Eメールアドレスの形式で入力してください</p>
+            </div>
         </div>
         <script src="./script/script.js"></script>
     </body>
