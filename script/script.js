@@ -1,5 +1,5 @@
-const nav = new Vue({
-    el: '#nav',
+const navbar = new Vue({
+    el: '#navbar',
     data () {
         return {
             menus: [{
