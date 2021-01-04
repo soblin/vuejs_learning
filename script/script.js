@@ -19,53 +19,62 @@ const navbar = new Vue({
     }
 });
 
+const imageThumbnail = Vue.component('image-thumbnail', {
+    props: {
+        path: {
+            type: String,
+            default: ''
+        }
+    },
+    /* このpath(メンバ変数)を動的に変えようとしてるんだと思う */
+    template: `<div class="img-box" :style="{ backgroundImage: 'url(' + path + ')' }" @click="$emit('clickimage')"></div>`
+});
+
+const modal = Vue.component('modal', {
+    props: {
+        isShown: {
+            type: Boolean,
+            default: false
+        },
+        imagePath : {
+            type: String,
+            default: ''
+        }
+    },
+    template: `<div v-if="isShown" class="my-modal" @click="$emit('close')"><img class="my-modal-img" :src="imagePath" alt="selectedImage"/></div>`
+});
+
 const app = new Vue({
     el: '#app',
+    components: {
+        'image-thumbnail': imageThumbnail, modal
+    },
     data() {
         return {
-            todos: [],
-            text: ''
+            isShown: false,
+            selectedImage: '',
+            images: [{
+                path: './img/001.png'
+            }, {
+                path: './img/002.jpeg'
+            }, {
+                path: './img/003.png'
+            }]
         };
     },
     methods: {
-        inputText(e) {
-            this.text = e.target.value;
+        onSelectImage(path) {
+            this.setImage(path),
+            this.openModal();
         },
-        addTodo() {
-            // if text was empty, do nothing
-            if (!this.text) return;
-            const text = this.text;
-            const id = Math.ceil(Math.random() * 1000);
-            const todo = {
-                id,
-                text,
-                isDone: false
-            };
-            this.todos.push(todo);
-            this.resetText();
+        openModal() {
+            this.isShown = true;
         },
-        resetText() {
-            this.text = '';
+        closeModal() {
+            this.isShown = false;
         },
-        deleteTodo(id) {
-            const index = this.getIndexBy(id);
-            this.todos.splice(index, 1);
-        },
-        toggleIsDone(id) {
-            const index = this.getIndexBy(id);
-            this.todos[index].isDone = !this.todos[index].isDone;
-        },
-        getIndexBy(id) {
-            const filterTodo = this.todos.filter(todo => todo.id === id)[0];
-            return this.todos.indexOf(filterTodo);
-        }
-    },
-    computed: {
-        doneTodo() {
-            return this.todos.filter(todo => todo.isDone === true);
-        },
-        incompleteTodo() {
-            return this.todos.filter(todo => todo.isDone === false);
+        setImage(path) {
+            this.selectedImage = path;
         }
     }
 });
